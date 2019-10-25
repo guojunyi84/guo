@@ -1,7 +1,11 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import axios from './utils/axios';
+
+import axios from './component/utils/axios';
 // import App from './App';
+
+
+//mport App from './App';
 import RootRoute from './router';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
