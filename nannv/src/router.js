@@ -6,6 +6,7 @@ import Reg from './component/reg'
 import Admin from './component/admin'
 import User from './component/user'
 import Home from './component/home'
+import Search from './component/search'
 class RootRouter extends Component {
   render() {
     return (
@@ -16,12 +17,13 @@ class RootRouter extends Component {
         <Switch>
           <Redirect exact from='/' to='/login' />
           <Route path='/login' component={Login} />
-          <Route path='/Reg' component={Reg} />
+          <Route path='/reg' component={Reg} />
           <Route path='/admin' render={() => {
             return (
               <Admin>
                 <Route path='/admin/home' component={Home} />
                 <Route path='/admin/user' component={User} />
+                <Route path='/admin/search' component={Search} />
               </Admin>
             )
           }} />

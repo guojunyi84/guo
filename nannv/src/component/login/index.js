@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
-import { Form, Icon, Input, Button, Checkbox, Card, message } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Card, message ,withRouter} from 'antd';
 import './index.less';
 import axios from 'axios'
 //import '../../style/index.less'
 class Login extends React.Component {
+  jump=()=>{
+     console.log(this.props)
+     
+    this.props.history.push('./reg')
+  }
+  
   submit = () => {
     console.log("登录")
     //getFieldsValue()获取一组输入控件的值
@@ -27,7 +33,7 @@ class Login extends React.Component {
           }
         }).then(data => {
           console.log(data)
-          if (data.data.err == 0) {
+          if (data.err == 0) {
             //登录成功1s后跳转到首页
             message.success("登录成功", 1, () => {
               this.props.history.push('./admin')
@@ -45,6 +51,7 @@ class Login extends React.Component {
     //对象的解构赋值，，表单数据的双向绑定   form是从Form.cerate中创建出来的
     const { getFieldDecorator } = this.props.form;
     return (
+      
       <div className="login-box">
         <Card style={{ width: "400px", height: '300px', background: "#cccccc", position: "absolute", left: "50%", top: "50%", marginTop: "-150px", marginLeft: "-200px" }}>
           <div className="login-form">
@@ -76,11 +83,11 @@ class Login extends React.Component {
               <Checkbox>记住我</Checkbox>
               <a className="login-form-forgot" href="">
                 忘记密码
-          </a>
+              </a>
               <Button type="primary" onClick={this.submit} className="login-form-button" style={{ width: "100%" }}>
                 登   录
-          </Button>
-              <a href="http://localhost:3000/#/Reg">立即注册</a>
+              </Button>
+              <div onClick={this.jump}>立即注册</div>
             </Form.Item>
           </div>
         </Card>
