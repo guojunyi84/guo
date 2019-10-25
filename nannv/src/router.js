@@ -1,10 +1,11 @@
 import React,{Component} from 'react'
 import {HashRouter,Switch,Redirect,Route} from 'react-router-dom'
-
+import CustomNav from './component/customNav'
 import Login from './component/login'
 import Admin from './component/admin'
 import User from './component/user'
 import Home from './component/home'
+import Search from './component/search'
 class RootRouter extends Component{
   render(){
     return(
@@ -20,6 +21,7 @@ class RootRouter extends Component{
               <Admin>
                 <Route path='/admin/home' component={Home}/>
                 <Route path='/admin/user' component={User}/>
+                <Route path='/admin/search' component={Search}/>
               </Admin>
             )
           }}/>
