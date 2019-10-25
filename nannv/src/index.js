@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import App from './App';
+//mport App from './App';
 import RootRoute from './router';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
