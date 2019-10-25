@@ -1,9 +1,10 @@
 import React,{Component} from 'react'
+import {withRouter} from 'react-router-dom'
 import { Menu, Icon } from 'antd';
 import './index.less'
 let navData=[
-  {name:'首页',path:'/home'},
-  {name:'音乐模块',path:'/home'},
+  {name:'首页',path:'/admin/home'},
+  {name:'音乐模块',path:'/admin/music'},
   {name:'工具模块',
     path:'/user',
     children:[
@@ -25,6 +26,9 @@ const { SubMenu } = Menu;
 
 
 class Admin extends Component{
+	jump=(path)=>{
+		this.props.history.push(path)
+	}
   renderItem=(data)=>{
     return data.map((item,index)=>{
       if(item.children){
@@ -35,7 +39,7 @@ class Admin extends Component{
           </SubMenu>
         )
       }else{
-        return <Menu.Item>{item.name}</Menu.Item>
+        return <Menu.Item  onClick={this.jump.bind(this,item.path)}>{item.name}</Menu.Item>
       }
     })
     
@@ -56,11 +60,11 @@ class Admin extends Component{
             {this.props.children}
           </div>
           <div>
-            底部信息
+   
           </div>
         </div>
       </div>
     )
   }
 }
-export default Admin
+export default withRouter(Admin)
