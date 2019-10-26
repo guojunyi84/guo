@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
 import { HashRouter, Switch, Redirect, Route } from 'react-router-dom'
 
+
 import Login from './component/login'
 import Reg from './component/reg'
 import Admin from './component/admin'
 import User from './component/user'
 import Home from './component/home'
+
+import Music from './component/music/music'
+
+
 import Search from './component/search'
+
 import UserList from './component/ustic'
 import  UserStatistics  from './component/us'
+
+
 class RootRouter extends Component {
   render() {
     return (
+
       <HashRouter>
         {/*导航*/}
     component={User}
@@ -23,8 +32,8 @@ class RootRouter extends Component {
           <Route path='/admin' render={() => {
             return (
 
+
             <Admin>
-            <Route path='/admin/home' component={Home} />
           <Route path='/admin/user' render={() => {
         return (
                 
@@ -34,8 +43,22 @@ class RootRouter extends Component {
             </div>
       )
       }}/>
-    <Route path='/admin/search' component={Search} />
-          </Admin>
+
+
+
+
+
+                <Route path='/admin/search' component={Search} />
+              <Route path='/admin/home' component={Home} />
+
+
+              <Route path='/admin/setting' component={Music}/>
+
+
+
+
+              </Admin>
+
             )
           }} />
         </Switch>

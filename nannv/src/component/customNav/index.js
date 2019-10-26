@@ -8,6 +8,7 @@ let navData=[
     path:'/admin/user',
     children:[
       {name:'用户查询管理',path:'/admin/user/list'},
+
       {name:'音乐点击量',path:'/admin/user/us'},
       {name:'待办事项',path:'/admin/user/del'}
     ]
