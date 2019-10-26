@@ -7,6 +7,8 @@ import Admin from './component/admin'
 import User from './component/user'
 import Home from './component/home'
 import Search from './component/search'
+import Userlist from './component/userlist'
+import Num from './component/num'
 class RootRouter extends Component {
   render() {
     return (
@@ -22,7 +24,15 @@ class RootRouter extends Component {
             return (
               <Admin>
                 <Route path='/admin/home' component={Home} />
-                <Route path='/admin/user' component={User} />
+                <Route path='/admin/user' render={() => {
+                  return(
+                   <div>
+                     <Route path='/admin/user/list' component={Userlist} />
+                     <Route path='/admin/user/num' component={Num} />
+                   </div>
+                  )
+                  
+                }} />
                 <Route path='/admin/search' component={Search} />
               </Admin>
             )
