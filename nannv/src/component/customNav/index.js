@@ -5,10 +5,10 @@ let navData=[
   {name:'首页',path:'/admin/home'},
   {name:'音乐模块',path:'/admin/setting'},
   {name:'管理',
-    path:'/user',
+    path:'/admin/user',
     children:[
       {name:'用户查询管理',path:'/admin/user/list'},
-      {name:'音乐点击量',path:'/admin/user/del'},
+      {name:'音乐点击量',path:'/admin/user/us'},
       {name:'待办事项',path:'/admin/user/del'}
     ]
   },
